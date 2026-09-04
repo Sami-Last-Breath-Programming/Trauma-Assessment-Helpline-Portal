@@ -1,14 +1,37 @@
-Architecture:
-  1. Visual Design & Theme (iOS Light Glassmorphism)
-    Theme: Default to a clean Light Mode color palette.
-    Glass Effects: Implement frosted glass aesthetics (backdrop-filter: blur(), subtle semi-transparent white fills, soft inner borders, and high-diffusion drop shadows) reminiscent of modern iOS UI.
-    De-bloating: Minimalist layout with generous white space, balanced typography, and zero visual clutter. Maintain full feature availability using progressive disclosure (e.g., collapsible panels, tooltips, flyout menus).
-  2. Architecture & Role Separation
-    Decoupled Architecture: Strict separation between User/Client views and Admin/Government management panels.
-    Role-Based Routing: Isolate Admin business logic, authorization checks, and UI components into dedicated modules/routes (e.g., /admin/* vs /app/*). Do not bleed admin state or layout wrapper logic into general user interfaces.
-  3. Progressive Disclosure & Navigation
-    Calm Home View: Clean, un-cluttered default view state.
-    Hidden Secondary Actions: Utilize dropdown menus, progressive exposure panels, context menus, and a clean, unobtrusive navigation bar to store non-primary tools and secondary workflows. Users should easily access functionality without cluttering the screen.
-  4. Code Quality & Codebase Tone
-    Standalone Software: Eliminate all inline references to "AI", "LLM", or assistant branding in both UI user-facing text and code comments/variable naming (unless explicitly required for an endpoint integration).
-    Developer-Grade Output: Write idiomatic, maintainable, modular, and type-safe code (TypeScript preferred). Use standard production naming conventions, clean folder structures, and separation of concerns—as if built by a staff frontend engineer.
+# NHAA 14566 AI-Based Real-Time Stress and Trauma Assessment Architecture
+Project:
+  Name: NHAA-14566-Trauma-Assessment
+  Helpline: National Helpline Against Atrocities (14566)
+  Target: Real-time trauma detection, risk scoring (0-100%), and crisis intervention
+
+Architecture_Modules:
+  Backend:
+    Runtime: Node.js + Express + TypeScript + ws (WebSocket)
+    Port: 3000
+    Compatibility: Linux and Windows cross-platform
+    Endpoints:
+      - /api/auth/register: Register web user & baseline screening
+      - /api/auth/login: Web portal login & profile fetch
+      - /api/phone/call: Phone call simulation (14566 IVR entrypoint)
+      - /api/phone/identify: Caller ID lookup for registered vs new callers
+      - /api/phone/create-profile: Interactive voice profile creation
+      - /api/trauma/assess: Direct audio/text trauma & stress evaluation
+      - /api/cases: Grievance & incident case logs with risk metrics
+      - /api/stats: Aggregate real-time crisis monitoring statistics
+      - WebSocket /ws/session: Real-time bidirectional voice & text stream + live responder push
+
+  AI_Engine:
+    Model: gemini-3.8-flash
+    Capabilities:
+      - Audio transcription from voice payloads
+      - Psychological stress & trauma scoring (0-100%)
+      - Threat level categorization (Low, Moderate, High, Severe)
+      - Risk flag detection (Imminent Danger, Caste Harassment, Suicidal Ideation, Panic)
+      - Empathetic crisis counseling text generation
+      - Voice TTS audio synthesis for caller feedback
+
+  Frontend:
+    Interface:
+      - Web Portal: Registration, Login, Baseline Questionnaires, Grievance Filing, Self-Help
+      - Phone Call Simulator (14566): Interactive live dialer, mic recording, real-time voice response
+      - Responder Dashboard: Live Risk Meter (0-100%), High-Risk Emergency Alerts, Transcript, Action Checklist

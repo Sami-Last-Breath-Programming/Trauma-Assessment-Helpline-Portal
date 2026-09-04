@@ -1,0 +1,14 @@
+Last Work:
+  1. Visual Design & Theme (iOS Light Glassmorphism)
+    Theme: Default to a clean Light Mode color palette.
+    Glass Effects: Implement frosted glass aesthetics (backdrop-filter: blur(), subtle semi-transparent white fills, soft inner borders, and high-diffusion drop shadows) reminiscent of modern iOS UI.
+    De-bloating: Minimalist layout with generous white space, balanced typography, and zero visual clutter. Maintain full feature availability using progressive disclosure (e.g., collapsible panels, tooltips, flyout menus).
+  2. Architecture & Role Separation
+    Decoupled Architecture: Strict separation between User/Client views and Admin/Government management panels.
+    Role-Based Routing: Isolate Admin business logic, authorization checks, and UI components into dedicated modules/routes (e.g., /admin/* vs /app/*). Do not bleed admin state or layout wrapper logic into general user interfaces.
+  3. Progressive Disclosure & Navigation
+    Calm Home View: Clean, un-cluttered default view state.
+    Hidden Secondary Actions: Utilize dropdown menus, progressive exposure panels, context menus, and a clean, unobtrusive navigation bar to store non-primary tools and secondary workflows. Users should easily access functionality without cluttering the screen.
+  4. Code Quality & Codebase Tone
+    Standalone Software: Eliminate all inline references to "AI", "LLM", or assistant branding in both UI user-facing text and code comments/variable naming (unless explicitly required for an endpoint integration).
+    Developer-Grade Output: Write idiomatic, maintainable, modular, and type-safe code (TypeScript preferred). Use standard production naming conventions, clean folder structures, and separation of concerns—as if built by a staff frontend engineer.
