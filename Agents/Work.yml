@@ -1,0 +1,4 @@
+Fix:
+  hide Live Incident Triage, Case Registry buttons on the Citizen login / sign  screen
+  hide the Intake & Counselor, My Cases & Rights buttons on the switch from Responder to  Citizen button
+  handle all edage case like that on login/signup screen these buttons not show on each speficic screen they show

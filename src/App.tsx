@@ -5,7 +5,6 @@ import { PhoneCallSimulator } from './components/PhoneCallSimulator';
 import { ResponderDashboard } from './components/ResponderDashboard';
 import { CaseRegistry } from './components/CaseRegistry';
 import { LiveRiskUpdate } from './types';
-import { UserProfile } from './types';
 import {
   ShieldCheck,
   PhoneCall,
@@ -19,12 +18,10 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [currentRole, setCurrentRole] = useState<AppRole>('citizen');
   const [citizenTab, setCitizenTab] = useState<CitizenTab>('portal_intake');
   const [authorityTab, setAuthorityTab] = useState<AuthorityTab>('triage_dashboard');
   const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
-  const [portalAuthActive, setPortalAuthActive] = useState(false);
 
   const [wsConnected, setWsConnected] = useState(false);
   const [liveEvents, setLiveEvents] = useState<LiveRiskUpdate[]>([]);
@@ -117,12 +114,12 @@ export default function App() {
           onCitizenTabChange={setCitizenTab}
           authorityTab={authorityTab}
           onAuthorityTabChange={setAuthorityTab}
+          showCitizenTabs={currentRole === 'citizen'}
+          portalAuthHidden={false}
           wsConnected={wsConnected}
           activeAlertCount={activeAlertCount}
           onOpenSimulator={() => setIsSimulatorOpen(true)}
           isSimulatorOpen={isSimulatorOpen}
-          showCitizenTabs={!!currentUser}
-          portalAuthHidden={portalAuthActive}
         />
 
         {/* Global Toast Notification (Calm Liquid Glass Pill) */}
@@ -149,8 +146,6 @@ export default function App() {
               onAssessmentCompleted={handleAssessmentCompleted}
               activeSubTab={citizenTab}
               onSubTabChange={setCitizenTab}
-              onUserChange={setCurrentUser}
-              onAuthScreenChange={setPortalAuthActive}
             />
           ) : (
             authorityTab === 'triage_dashboard' ? (
@@ -168,57 +163,43 @@ export default function App() {
         <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pb-3 pt-1 pointer-events-auto">
           <div className="liquid-glass rounded-3xl p-1.5 flex items-center justify-around shadow-[0_10px_35px_rgba(15,23,42,0.08)] border border-white/95">
             {currentRole === 'citizen' ? (
-              currentUser ? (
-                <>
-                  <button
-                    id="mobile-tab-intake"
-                    onClick={() => setCitizenTab('portal_intake')}
-                    className={`flex-1 min-h-[44px] py-1.5 px-2 rounded-2xl flex flex-col items-center justify-center transition-all cursor-pointer ${
-                      citizenTab === 'portal_intake'
-                        ? 'bg-slate-900 text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    <FileText className="w-4 h-4 mb-0.5" />
-                    <span className="text-[11px] font-medium">Intake</span>
-                  </button>
+              <>
+                <button
+                  id="mobile-tab-intake"
+                  onClick={() => setCitizenTab('portal_intake')}
+                  className={`flex-1 min-h-[44px] py-1.5 px-2 rounded-2xl flex flex-col items-center justify-center transition-all cursor-pointer ${
+                    citizenTab === 'portal_intake'
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <FileText className="w-4 h-4 mb-0.5" />
+                  <span className="text-[11px] font-medium">Intake</span>
+                </button>
 
-                  <button
-                    id="mobile-call-hotline"
-                    onClick={() => setIsSimulatorOpen(true)}
-                    className="mx-1 min-h-[44px] px-4 py-2 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center space-x-1.5 shadow-md shadow-indigo-500/25 active:scale-95 transition-all cursor-pointer"
-                    title="Call 14566 Helpline"
-                  >
-                    <Phone className="w-4 h-4 text-white" />
-                    <span className="text-xs font-semibold">14566</span>
-                  </button>
+                <button
+                  id="mobile-call-hotline"
+                  onClick={() => setIsSimulatorOpen(true)}
+                  className="mx-1 min-h-[44px] px-4 py-2 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center space-x-1.5 shadow-md shadow-indigo-500/25 active:scale-95 transition-all cursor-pointer"
+                  title="Call 14566 Helpline"
+                >
+                  <Phone className="w-4 h-4 text-white" />
+                  <span className="text-xs font-semibold">14566</span>
+                </button>
 
-                  <button
-                    id="mobile-tab-cases"
-                    onClick={() => setCitizenTab('my_cases')}
-                    className={`flex-1 min-h-[44px] py-1.5 px-2 rounded-2xl flex flex-col items-center justify-center transition-all cursor-pointer ${
-                      citizenTab === 'my_cases'
-                        ? 'bg-slate-900 text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    <ShieldCheck className="w-4 h-4 mb-0.5" />
-                    <span className="text-[11px] font-medium">My Cases</span>
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    id="mobile-call-hotline"
-                    onClick={() => setIsSimulatorOpen(true)}
-                    className="mx-1 min-h-[44px] px-4 py-2 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center space-x-1.5 shadow-md shadow-indigo-500/25 active:scale-95 transition-all cursor-pointer"
-                    title="Call 14566 Helpline"
-                  >
-                    <Phone className="w-4 h-4 text-white" />
-                    <span className="text-xs font-semibold">14566</span>
-                  </button>
-                </>
-              )
+                <button
+                  id="mobile-tab-cases"
+                  onClick={() => setCitizenTab('my_cases')}
+                  className={`flex-1 min-h-[44px] py-1.5 px-2 rounded-2xl flex flex-col items-center justify-center transition-all cursor-pointer ${
+                    citizenTab === 'my_cases'
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <ShieldCheck className="w-4 h-4 mb-0.5" />
+                  <span className="text-[11px] font-medium">My Cases</span>
+                </button>
+              </>
             ) : (
               <>
                 <button

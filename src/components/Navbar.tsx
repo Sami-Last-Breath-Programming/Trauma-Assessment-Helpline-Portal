@@ -29,8 +29,8 @@ interface NavbarProps {
   activeAlertCount: number;
   onOpenSimulator: () => void;
   isSimulatorOpen: boolean;
-  showCitizenTabs?: boolean;
-  portalAuthHidden?: boolean;
+  showCitizenTabs: boolean;
+  portalAuthHidden: boolean,
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Desktop-only secondary tab strip (Clean, unbloated, hidden on mobile) */}
           <div className="hidden sm:flex items-center justify-between py-2 border-t border-slate-200/40 text-xs">
-            {currentRole === 'citizen' && showCitizenTabs && !portalAuthHidden ? (
+            {currentRole === 'citizen' ? (
               <div className="flex items-center space-x-1.5">
                 <button
                   id="tab-citizen-intake"
