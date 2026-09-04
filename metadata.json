@@ -1,0 +1,6 @@
+{
+  "name": "NHAA 14566 Trauma Assessment & Helpline Portal",
+  "description": "Real-time stress and trauma assessment module for victims and complainants accessing NHAA (14566) helpline and integrated portal under SC/ST (PoA) Act 1989.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

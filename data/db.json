@@ -1,0 +1,136 @@
+{
+  "users": [
+    {
+      "fullName": "Abdul Sami",
+      "phone": "7467054015",
+      "age": 21,
+      "gender": "Male",
+      "state": "Uttar Pradesh",
+      "district": "Pilibhit",
+      "category": "OBC",
+      "emergencyContact": "",
+      "id": "usr_1788527096004_j3yj",
+      "createdAt": "2026-09-04T13:04:56.004Z"
+    }
+  ],
+  "assessments": [
+    {
+      "sessionId": "case_1788527119666_mzf9",
+      "userId": "usr_1788527096004_j3yj",
+      "callerNumber": "7467054015",
+      "channel": "web_portal",
+      "userMessage": "hi",
+      "stressScore": 35,
+      "riskLevel": "LOW",
+      "traumaCategory": "Psychological Trauma & Grievance",
+      "emotionalState": "High Anxiety",
+      "criticalFlags": [],
+      "responderUrgency": "ROUTINE",
+      "recommendedActions": [
+        "Ascertain exact physical coordinates of victim.",
+        "Alert nearest PoA Special Cell / PCR quick response unit.",
+        "Provide continuous calming voice reassurance to caller."
+      ],
+      "counselingResponse": "Hum aapki awaz sun rahe hain. Aap akele nahi hain, NHAA 14566 helpline aapki puri madad karegi. Kripya surakshit sthan par rahein, hamari team active ho chuki hai.",
+      "id": "asm_1788527616712_o1y3",
+      "timestamp": "2026-09-04T13:13:36.712Z"
+    },
+    {
+      "sessionId": "case_1788527119666_mzf9",
+      "userId": "usr_1788527096004_j3yj",
+      "callerNumber": "7467054015",
+      "channel": "web_portal",
+      "userMessage": "hello",
+      "stressScore": 35,
+      "riskLevel": "LOW",
+      "traumaCategory": "Psychological Trauma & Grievance",
+      "emotionalState": "High Anxiety",
+      "criticalFlags": [],
+      "responderUrgency": "ROUTINE",
+      "recommendedActions": [
+        "Ascertain exact physical coordinates of victim.",
+        "Alert nearest PoA Special Cell / PCR quick response unit.",
+        "Provide continuous calming voice reassurance to caller."
+      ],
+      "counselingResponse": "Hum aapki awaz sun rahe hain. Aap akele nahi hain, NHAA 14566 helpline aapki puri madad karegi. Kripya surakshit sthan par rahein, hamari team active ho chuki hai.",
+      "id": "asm_1788527252944_mcyl",
+      "timestamp": "2026-09-04T13:07:32.944Z"
+    },
+    {
+      "sessionId": "case_1788527119666_mzf9",
+      "userId": "usr_1788527096004_j3yj",
+      "callerNumber": "7467054015",
+      "channel": "web_portal",
+      "userMessage": "hi",
+      "stressScore": 35,
+      "riskLevel": "LOW",
+      "traumaCategory": "Psychological Trauma & Grievance",
+      "emotionalState": "High Anxiety",
+      "criticalFlags": [],
+      "responderUrgency": "ROUTINE",
+      "recommendedActions": [
+        "Ascertain exact physical coordinates of victim.",
+        "Alert nearest PoA Special Cell / PCR quick response unit.",
+        "Provide continuous calming voice reassurance to caller."
+      ],
+      "counselingResponse": "Hum aapki awaz sun rahe hain. Aap akele nahi hain, NHAA 14566 helpline aapki puri madad karegi. Kripya surakshit sthan par rahein, hamari team active ho chuki hai.",
+      "id": "asm_1788527119674_razb",
+      "timestamp": "2026-09-04T13:05:19.674Z"
+    }
+  ],
+  "cases": [
+    {
+      "callerNumber": "7467054015",
+      "userId": "usr_1788527096004_j3yj",
+      "victimName": "Abdul Sami",
+      "location": "Pilibhit, Uttar Pradesh",
+      "channel": "web_portal",
+      "currentRiskScore": 35,
+      "riskLevel": "MODERATE",
+      "status": "active",
+      "category": "Real-Time Trauma Assessment Intake",
+      "summary": "hi",
+      "transcripts": [
+        {
+          "sender": "caller",
+          "text": "hi",
+          "stressScore": 35,
+          "timestamp": "2026-09-04T13:05:19.666Z"
+        },
+        {
+          "sender": "assistant",
+          "text": "Hum aapki awaz sun rahe hain. Aap akele nahi hain, NHAA 14566 helpline aapki puri madad karegi. Kripya surakshit sthan par rahein, hamari team active ho chuki hai.",
+          "timestamp": "2026-09-04T13:05:19.674Z"
+        },
+        {
+          "sender": "caller",
+          "text": "hello",
+          "stressScore": 35,
+          "timestamp": "2026-09-04T13:07:32.936Z"
+        },
+        {
+          "sender": "assistant",
+          "text": "Hum aapki awaz sun rahe hain. Aap akele nahi hain, NHAA 14566 helpline aapki puri madad karegi. Kripya surakshit sthan par rahein, hamari team active ho chuki hai.",
+          "timestamp": "2026-09-04T13:07:32.936Z"
+        },
+        {
+          "sender": "caller",
+          "text": "hi",
+          "stressScore": 35,
+          "timestamp": "2026-09-04T13:13:36.704Z"
+        },
+        {
+          "sender": "assistant",
+          "text": "Hum aapki awaz sun rahe hain. Aap akele nahi hain, NHAA 14566 helpline aapki puri madad karegi. Kripya surakshit sthan par rahein, hamari team active ho chuki hai.",
+          "timestamp": "2026-09-04T13:13:36.704Z"
+        }
+      ],
+      "criticalFlags": [],
+      "assignedOperator": "NHAA Crisis Desk",
+      "id": "case_1788527119666_mzf9",
+      "caseNumber": "NHAA-2026-6779",
+      "createdAt": "2026-09-04T13:05:19.666Z",
+      "updatedAt": "2026-09-04T13:13:36.704Z"
+    }
+  ]
+}
